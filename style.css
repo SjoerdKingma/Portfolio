@@ -16,14 +16,26 @@ a, a:hover {
 ul{
     list-style-type: none;
     padding-top: 1em;
-    padding-right: 10px;
+    padding-left: 0;
+    /* padding-right: 10px; */
 }
+
 #nav-left{
-    border: 1px solid white;
+    /* border: 1px solid white; */
 }
 
 #nav-left li{
     margin-bottom: 1em;
     border: 1px solid white;
     border-radius: 5px;
+}
+
+.bookmark_img{
+    width: 30px;
+    height: 30px;
+    float: left;
+}
+
+.navButton_parent{
+    /* float: right; */
 }

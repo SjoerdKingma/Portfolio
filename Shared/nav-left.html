@@ -1,20 +1,36 @@
-<div id="nav-left" class="flex-grow-1">
+<div id="nav-left">
   <ul>
-    <li id="navButton_about" class="navButton navButton_parent"><a href="">About me</a>
+    <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
+    <li id="navButton_about" class="navButton navButton_parent col-sm-8"><a href="">About me</a>
       <ul>
         <li id="navButton_about_introduction" class="navButton navButtonChild"><a href="">Introduction</a></li>
         <li id="navButton_about_contact" class="navButton navButtonChild"><a href="">Contact</a></li>
         <li id="navButton_about_timeline" class="navButton navButtonChild"><a href="">Timeline</a></li>
       </ul>
     </li>
-    <li class="navButton navButton_parent"><a href="">Code snippets</a></li>
-    <li class="navButton navButton_parent"><a href="">Projects</a></li>
-    <li class="navButton navButton_parent"><a href="">Coding challenges</a></li>
+
+    <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
+    <li class="navButton navButton_parent col-sm-8"><a href="">Code snippets</a></li>
+
+    <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
+    <li class="navButton navButton_parent col-sm-8"><a href="">Projects</a></li>
+
+    <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
+    <li class="navButton navButton_parent col-sm-8"><a href="">Coding challenges</a></li>
   </ul>
 </div>
 
 <script>
-  $(".navButtonChild").hide();
+  $(document).ready(function(){
+
+    $(".navButtonChild").hide();
+    if(sessionStorage.getItem("BookmarkerIndex") =! null){
+      //Show active bookmark
+
+      //Show sub menu
+    }
+    
+  });
 
   $(".navButton").on('mouseover', function(){
     $(this).css("background-color", "#5865F2");
@@ -45,40 +61,17 @@
     // sessionStorage.getItem("BookmarkerIndex");
     var currentBookmarkIndex = getBookmarkerIndexByName(elementId);
     sessionStorage.setItem("BookmarkerIndex",currentBookmarkIndex);
-    console.log(sessionStorage.getItem("BookmarkerIndex"));
+    //console.log(sessionStorage.getItem("BookmarkerIndex"));
     
   });
 
-  class Bookmarker{
-    constructor(index, name){
-      this.index = index;
-      this.name = name;
-    }
-  }
-
-  const  bookmarkDictionairy = [
-      new Bookmarker(0, "navButton_About"),
-      new Bookmarker(1, "navButton_About_Introduction"),
-      new Bookmarker(2, "navButton_About_Timeline"),
-      //new Bookmarker(3, "about_timeline"),
-      //new Bookmarker(4, "projects"),
-      // new Bookmarker(4, "projects_project"),
-      // new Bookmarker(4, "projects_project_introduction"),
-      // new Bookmarker(4, "projects_project_introduction"),
-      //new Bookmarker(5, "components"),
+  const  bookmarks = [
+      "navButton_About",
+      "navButton_About_Introduction",
+      "navButton_About_Timeline",
     ];
 
     function getBookmarkerIndexByName(name){
-      for(var i=0; i<bookmarkDictionairy.length; i++){
-        if(bookmarkDictionairy[i].name == name){
-          console.log(bookmarkDictionairy[i]);
-          return bookmarkDictionairy[i];
-        }
-      }
+      return bookmarks.indexOf(name);
     }
-
-//   $('#someButton').click(function() {
-//     window.location.href = '/some/new/page';
-//     return false;
-// });
 </script>
