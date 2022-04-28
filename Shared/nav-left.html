@@ -1,22 +1,84 @@
-<!-- <div id="toc_container">
-    <p class="toc_title">Contents</p>
-    <ul class="toc_list">
-      <li><a href="#First_Point_Header">1 First Point Header</a>
+<div id="nav-left" class="flex-grow-1">
+  <ul>
+    <li id="navButton_about" class="navButton navButton_parent"><a href="">About me</a>
       <ul>
-        <li><a href="#First_Sub_Point_1">1.1 First Sub Point 1</a></li>
-        <li><a href="#First_Sub_Point_2">1.2 First Sub Point 2</a></li>
+        <li id="navButton_about_introduction" class="navButton navButtonChild"><a href="">Introduction</a></li>
+        <li id="navButton_about_contact" class="navButton navButtonChild"><a href="">Contact</a></li>
+        <li id="navButton_about_timeline" class="navButton navButtonChild"><a href="">Timeline</a></li>
       </ul>
     </li>
-    <li><a href="#Second_Point_Header">2 Second Point Header</a></li>
-    <li><a href="#Third_Point_Header">3 Third Point Header</a></li>
-    </ul>
-    </div> -->
+    <li class="navButton navButton_parent"><a href="">Code snippets</a></li>
+    <li class="navButton navButton_parent"><a href="">Projects</a></li>
+    <li class="navButton navButton_parent"><a href="">Coding challenges</a></li>
+  </ul>
+</div>
 
-    <div id="nav-left">
-      <ul>
-        <li class="listItem"><a href="default.asp">Home</a></li>
-        <li class="listItem"><a href="news.asp">News</a></li>
-        <li class="listItem"><a href="contact.asp">Contact</a></li>
-        <li class="listItem"><a href="about.asp">About</a></li>
-      </ul>
-    </div>
+<script>
+  $(".navButtonChild").hide();
+
+  $(".navButton").on('mouseover', function(){
+    $(this).css("background-color", "#5865F2");
+  });
+
+  $(".navButton").on('mouseleave', function(){
+    $(this).css("background-color", "inherit");
+  });
+
+  $(".navButton").on('click', function(){
+
+    //Hide other nav buttons
+    $(".navButtonChild").hide();
+    
+    //Get clicked element
+    var elementId = $(this).attr('id');
+
+    // Get children of clicked element
+    var ul = $("#"+elementId).children()[1];
+    var subButtons = $(ul).children();
+    console.log(subButtons);
+    
+    for(var i =0; i<subButtons.length; i++){
+      $(subButtons[i]).show();
+    }
+
+    // sessionStorage.SessionName = "SessionData";
+    // sessionStorage.getItem("BookmarkerIndex");
+    var currentBookmarkIndex = getBookmarkerIndexByName(elementId);
+    sessionStorage.setItem("BookmarkerIndex",currentBookmarkIndex);
+    console.log(sessionStorage.getItem("BookmarkerIndex"));
+    
+  });
+
+  class Bookmarker{
+    constructor(index, name){
+      this.index = index;
+      this.name = name;
+    }
+  }
+
+  const  bookmarkDictionairy = [
+      new Bookmarker(0, "navButton_About"),
+      new Bookmarker(1, "navButton_About_Introduction"),
+      new Bookmarker(2, "navButton_About_Timeline"),
+      //new Bookmarker(3, "about_timeline"),
+      //new Bookmarker(4, "projects"),
+      // new Bookmarker(4, "projects_project"),
+      // new Bookmarker(4, "projects_project_introduction"),
+      // new Bookmarker(4, "projects_project_introduction"),
+      //new Bookmarker(5, "components"),
+    ];
+
+    function getBookmarkerIndexByName(name){
+      for(var i=0; i<bookmarkDictionairy.length; i++){
+        if(bookmarkDictionairy[i].name == name){
+          console.log(bookmarkDictionairy[i]);
+          return bookmarkDictionairy[i];
+        }
+      }
+    }
+
+//   $('#someButton').click(function() {
+//     window.location.href = '/some/new/page';
+//     return false;
+// });
+</script>
