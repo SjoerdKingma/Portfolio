@@ -1,36 +1,58 @@
 <div id="nav-left">
   <ul>
-    <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-    <li id="navButton_about" class="navButton navButton_parent col-sm-8"><a href="">About me</a>
+    <!-- Home -->
+    <li>
+      <div class="button_img_container">
+        <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
+        <div id="navButton_about" class="navButton navButton_parent col-sm-8">
+          Home
+        </div>   
+      </div>
       <ul>
-        <li id="navButton_about_introduction" class="navButton navButtonChild"><a href="">Introduction</a></li>
-        <li id="navButton_about_contact" class="navButton navButtonChild"><a href="">Contact</a></li>
-        <li id="navButton_about_timeline" class="navButton navButtonChild"><a href="">Timeline</a></li>
+        <li id="navButton_about_introduction" class="navButton navButtonChild">Introduction</li>
+        <li id="navButton_about_contact" class="navButton navButtonChild">Contact</li>
+        <li id="navButton_about_timeline" class="navButton navButtonChild">Timeline</li>
       </ul>
     </li>
-
-    <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-    <li class="navButton navButton_parent col-sm-8"><a href="">Code snippets</a></li>
-
-    <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-    <li class="navButton navButton_parent col-sm-8"><a href="">Projects</a></li>
-
-    <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-    <li class="navButton navButton_parent col-sm-8"><a href="">Coding challenges</a></li>
+    <!-- Project -->
+    <li>
+      <div class="button_img_container">
+        <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
+        <div id="navButton_projects" class="navButton navButton_parent col-sm-8">
+          Project
+        </div>   
+      </div>
+      <ul>
+        <li id="navButton_projects_search" class="navButton navButtonChild">Project search</li>
+      </ul>
+    </li>
   </ul>
 </div>
 
 <script>
   $(document).ready(function(){
-
-    $(".navButtonChild").hide();
-    if(sessionStorage.getItem("BookmarkerIndex") =! null){
-      //Show active bookmark
-
-      //Show sub menu
-    }
-    
+    ShowSubMenu();
   });
+
+  function ShowSubMenu(){
+    $(".navButtonChild").hide();
+    var BookmarkIndex = sessionStorage.getItem("BookmarkIndex");
+
+    //if((typeof BookmarkIndex != 'undefined') && (BookmarkIndex != -1)){    
+    if(BookmarkIndex != null){
+
+      var currentBookmarkElementId = bookmarks_htmlPages[BookmarkIndex][0];
+      
+      // Show sub menu
+      var ul = $("#"+currentBookmarkElementId).parent().next();
+      var subButtons = $(ul).children();
+      
+      for(var i =0; i<subButtons.length; i++){
+        console.log("Showing button " + i);
+        $(subButtons[i]).show();
+      }
+    }
+  }
 
   $(".navButton").on('mouseover', function(){
     $(this).css("background-color", "#5865F2");
@@ -42,36 +64,40 @@
 
   $(".navButton").on('click', function(){
 
-    //Hide other nav buttons
-    $(".navButtonChild").hide();
-    
     //Get clicked element
     var elementId = $(this).attr('id');
 
-    // Get children of clicked element
-    var ul = $("#"+elementId).children()[1];
-    var subButtons = $(ul).children();
-    console.log(subButtons);
-    
-    for(var i =0; i<subButtons.length; i++){
-      $(subButtons[i]).show();
+    //Loop through bookmark mapping and get the index of the clicked bookmark
+    var BookmarkIndex = -1;
+
+    for(var i =0; i<bookmarks_htmlPages.length; i++){
+      var currentItem = bookmarks_htmlPages[i][0];
+      if (currentItem == elementId){
+        BookmarkIndex = i;
+      }
     }
 
-    // sessionStorage.SessionName = "SessionData";
-    // sessionStorage.getItem("BookmarkerIndex");
-    var currentBookmarkIndex = getBookmarkerIndexByName(elementId);
-    sessionStorage.setItem("BookmarkerIndex",currentBookmarkIndex);
-    //console.log(sessionStorage.getItem("BookmarkerIndex"));
-    
+    console.log("BookmarkIndex: " + BookmarkIndex);
+    if(BookmarkIndex > -1){
+      sessionStorage.setItem("BookmarkIndex",BookmarkIndex);
+    }
+
+    //Redirect to new URL
+    var url = bookmarks_htmlPages[BookmarkIndex][1];
+    console.log("URL: "+ url);
+    window.location.href = url;
   });
+  
+  function hideAllNavButtons(){
+      $(".navButtonChild").hide();
+  }
 
-  const  bookmarks = [
-      "navButton_About",
-      "navButton_About_Introduction",
-      "navButton_About_Timeline",
-    ];
-
-    function getBookmarkerIndexByName(name){
-      return bookmarks.indexOf(name);
-    }
+  const bookmarks_htmlPages = [
+      ["navButton_about", "index.html"],
+      ["navButton_about_Introduction", "index.html"],
+      ["navButton_about_Contact", "contact.html"],
+      ["navButton_about_Timeline", "timeline.html"],
+      ["navButton_projects", "projects.html"],
+      ["navButton_projects_search", "projects.html"]
+  ]
 </script>
