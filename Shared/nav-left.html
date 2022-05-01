@@ -9,9 +9,9 @@
         </div>   
       </div>
       <ul>
-        <li id="navButton_about_introduction" class="navButton navButtonChild">Introduction</li>
-        <li id="navButton_about_contact" class="navButton navButtonChild">Contact</li>
-        <li id="navButton_about_timeline" class="navButton navButtonChild">Timeline</li>
+        <li id="navButton_about_introduction" class="navButton navButton_child">Introduction</li>
+        <li id="navButton_about_contact" class="navButton navButton_child">Contact</li>
+        <li id="navButton_about_timeline" class="navButton navButton_child">Timeline</li>
       </ul>
     </li>
     <!-- Project -->
@@ -23,7 +23,7 @@
         </div>   
       </div>
       <ul>
-        <li id="navButton_projects_search" class="navButton navButtonChild">Project search</li>
+        <li id="navButton_projects_search" class="navButton navButton_child">Project search</li>
       </ul>
     </li>
   </ul>
@@ -35,7 +35,7 @@
   });
 
   function ShowSubMenu(){
-    $(".navButtonChild").hide();
+    $(".navButton_child").hide();
     var BookmarkIndex = sessionStorage.getItem("BookmarkIndex");
 
     //if((typeof BookmarkIndex != 'undefined') && (BookmarkIndex != -1)){    
@@ -89,7 +89,7 @@
   });
   
   function hideAllNavButtons(){
-      $(".navButtonChild").hide();
+      $(".navButton_child").hide();
   }
 
   const bookmarks_htmlPages = [

@@ -35,6 +35,8 @@ li{
 
 .button_img_container{
     overflow:hidden;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
 }
 
 .img_container{
@@ -58,4 +60,8 @@ li{
 
 .navButton_parent{
     /* float: right; */
+}
+
+.navButton_child{
+    margin-bottom: 0.2em;
 }
