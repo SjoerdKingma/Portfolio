@@ -60,6 +60,17 @@
 </div>
 
 <script>
+
+const bookmarks_htmlPages = [
+    //ElementId, URL, Menu depth (0: no depth. 1: first sub menu.)
+      ["navButton_about", "index.html", 0],
+      ["navButton_about_introduction", "index.html", 1],
+      ["navButton_about_contact", "index.html", 1],
+      ["navButton_about_timeline", "index.html", 1],
+      ["navButton_projects", "projects.html", 0],
+      ["navButton_projects_search", "projects.html", 1]
+  ]
+
   $(document).ready(function(){
     HideBookmarks();
     $(".navButton_img_container_child").parent().hide(); // Hide all sub nav buttons
@@ -92,7 +103,6 @@
         $(li).show();
       }
     }
-
     //Show Bookmarker
     $('#' +bookmarkElementId).prev().css('visibility', 'visible');
   }
@@ -121,16 +131,6 @@
     var url = bookmarks_htmlPages[BookmarkIndex][1];
     window.location.href = url;
   });
-
-  const bookmarks_htmlPages = [
-    //ElementId, URL, Menu depth (0: no depth. 1: first sub menu.)
-      ["navButton_about", "index.html", 0],
-      ["navButton_about_introduction", "index.html", 1],
-      ["navButton_about_contact", "index.html", 1],
-      ["navButton_about_timeline", "index.html", 1],
-      ["navButton_projects", "projects.html", 0],
-      ["navButton_projects_search", "projects.html", 1]
-  ]
 
   function getBookmarkIndexByElementId(elementId){
     for(var i =0; i<bookmarks_htmlPages.length; i++){
