@@ -109,11 +109,8 @@
 
       console.log("Bookmark Depth: " + bookmarkDepth);
       if (bookmarkDepth == 0) {
-        var test = bookmarkElement.parent().next().children().first();
-        console.log("test: ");
-        console.log(test);
         //Show another bookmarker for the first child (in the bookmarker hierarchy).
-        //                                div      ul       li          div         img
+        //                                div      ul                li                  div              img
         var imgElement = bookmarkElement.parent().next().children().first().children().first().children().first();
         console.log("Image element: ");
         console.log(imgElement);
