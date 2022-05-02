@@ -18,36 +18,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="header-placeholder" class="col-sm-12"></div>   
-
+    <div id="header-placeholder" class="col-sm-12"></div>
     <div id="nav-left-placeholder" class="col-sm-3"></div>
-
     <div id="page-placeholder" class="col-sm-9"></div>
 
-    <!-- Load header-->
+    <!-- Load Page Mapper -->
     <script type="text/javascript" src="Shared/page-mapper.js"></script>
 
+    <!-- Load header-->
     <script>
         $('#header-placeholder').load('Shared/header.html');
     </script>
 
-    <!-- Load left nav bar-->
+    <!-- Load left nav-->
     <script>
         $('#nav-left-placeholder').load('Shared/nav-left.html');
     </script>
-
-    <!-- Load page-mapper.js -->
-    <script src="">
                 
-    </script>
      <!-- Load page-->
      <script>
          var bookmarkIndex = sessionStorage.getItem("BookmarkIndex");
          if(bookmarkIndex == null){
              bookmarkIndex = 0;
          }
-         var url = getUrlByIndex(bookmarkIndex);
-         console.log(url);
+         var url = getUrlByIndex(bookmarkIndex); //Method can be found in Shared/page-mapper/js
         $('#page-placeholder').load('pages/'+ url);
     </script>
 

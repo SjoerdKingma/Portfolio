@@ -10,8 +10,8 @@ header{
 }
 
 a, a:hover {
-    color: inherit; /* no blue colors */
-    text-decoration: inherit; /* no underline */
+    color: inherit; /* no blue colors for links*/
+    text-decoration: inherit; /* no underline for links */
   }
 
 ul{
