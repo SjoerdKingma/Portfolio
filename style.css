@@ -16,25 +16,14 @@ a, a:hover {
 ul{
     list-style-type: none;
     padding-inline-start: 0;
-    /* padding-top: 1em;
+}
+
+.nav-left{
     padding-left: 0;
-    padding-right: 10px; */
+    padding-right: 0;
 }
 
-li{
-    /* margin-bottom: 1em; */
-}
-
-#nav-left{
-    /* border: 1px solid white; */
-}
-
-#nav-left li{
-    /* margin-bottom: 1em; */
-    
-}
-
-.button_img_container{
+.navButton_img_container{
     overflow:hidden;
     margin-top: 0.3em;
     margin-bottom: 0.3em;
@@ -57,12 +46,20 @@ li{
     cursor: pointer;
     border: 1px solid white;
     border-radius: 5px;
-}
+    text-align: center;
+    font-size: 18px;
+    height: 35px;
 
-.navButton_parent{
-    /* float: right; */
+    text-overflow: clip;
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .navButton_child{
-    margin-bottom: 0.2em;
+    font-size: 13px;
+}
+
+.navButton_img_container_child{
+    padding-inline-start: 15%;
 }
