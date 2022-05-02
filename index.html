@@ -22,13 +22,11 @@
 
     <div id="nav-left-placeholder" class="col-sm-3"></div>
 
-    <div id="Page" class="col-sm-9">
-        <h1>Introduction</h1>
-        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dignissim mattis imperdiet. Fusce porta, diam a congue elementum, velit lorem tempor ligula, sed accumsan justo augue at erat. Aliquam erat volutpat. Cras at hendrerit metus. Integer lobortis dictum mauris a tincidunt. Ut bibendum consectetur massa, quis accumsan leo semper vitae. Sed eget dui quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed cursus vehicula ultrices. Nunc at mi non sapien mollis condimentum ut in nisi.</p> -->
-        Welcome to my portfolio website! Here I will display some coding projects and components.
-    </div>
+    <div id="page-placeholder" class="col-sm-9"></div>
 
     <!-- Load header-->
+    <script type="text/javascript" src="Shared/page-mapper.js"></script>
+
     <script>
         $('#header-placeholder').load('Shared/header.html');
     </script>
@@ -36,6 +34,21 @@
     <!-- Load left nav bar-->
     <script>
         $('#nav-left-placeholder').load('Shared/nav-left.html');
+    </script>
+
+    <!-- Load page-mapper.js -->
+    <script src="">
+                
+    </script>
+     <!-- Load page-->
+     <script>
+         var bookmarkIndex = sessionStorage.getItem("BookmarkIndex");
+         if(bookmarkIndex == null){
+             bookmarkIndex = 0;
+         }
+         var url = getUrlByIndex(bookmarkIndex);
+         console.log(url);
+        $('#page-placeholder').load('pages/'+ url);
     </script>
 
     <!-- Load bootstrap JS -->

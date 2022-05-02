@@ -89,21 +89,7 @@
   </ul>
 </div>
 
-<script>
-  const bookmarks_htmlPages = [
-    //ElementId, URL, Menu depth (0: no depth. 1: first sub menu.)
-    ["navButton_about", "index.html", 0],
-    ["navButton_about_introduction", "index.html", 1],
-    ["navButton_about_contact", "contact.html", 1],
-    ["navButton_about_timeline", "index.html", 1],
-    ["navButton_projects", "projects.html", 0],
-    ["navButton_projects_search", "projects.html", 1],
-    ["navButton_components", "components.html", 0],
-    ["navButton_components_search", "components.html", 1],
-    ["navButton_challenges", "challenges.html", 0],
-    ["navButton_challenges_search", "challenges.html", 1]
-  ]
-
+<script>  
   $(document).ready(function () {
     HideBookmarks();
     $(".navButton_img_container_child").parent().hide(); // Hide all sub nav buttons
@@ -171,19 +157,13 @@
       sessionStorage.setItem("BookmarkIndex", BookmarkIndex);
     }
 
-    //Redirect to new URL
-    var url = bookmarks_htmlPages[BookmarkIndex][1];
-    window.location.href = url;
-  });
+    //Refresh page
+    location.reload();
 
-  function getBookmarkIndexByElementId(elementId) {
-    for (var i = 0; i < bookmarks_htmlPages.length; i++) {
-      var currentItem = bookmarks_htmlPages[i][0];
-      if (currentItem == elementId) {
-        return i;
-      }
-    }
-  }
+    //Redirect to new URL
+    // var url = bookmarks_htmlPages[BookmarkIndex][1];
+    // window.location.href = url;
+  });
 
   function HideBookmarks() {
     $('.bookmark_img').each(function (i, obj) {
