@@ -19,7 +19,7 @@ ul{
     padding-inline-start: 0;
 }
 
-#page{
+#page-placeholder{
     padding-right: 10%;
 }
 
@@ -67,4 +67,9 @@ ul{
 
 .navButton_img_container_child{
     padding-inline-start: 15%;
+}
+
+.listItem{
+    background-color: grey;
+    font-color:black;
 }

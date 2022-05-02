@@ -1,0 +1,23 @@
+<div id="searchBar-placeholder"></div>
+<ul id="dataList-placeholder"></ul>
+
+
+<script>
+    var listItemHtml = "";
+    $.get("Shared/listItem.html", function (data) {
+        loadData(data);
+        //listItemHtml = data;
+        //alert(listItemHtml);
+    });
+
+    function loadData(li) {
+        //$('#dataList-placeholder').load('Shared/listItem.html');
+        
+        //$('input').prop('outerHTML');
+
+        for (var i = 0; i < 3; i++) {
+
+            $('#dataList-placeholder').append(li);
+        }
+    }
+</script>
