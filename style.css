@@ -7,6 +7,8 @@ body{
 header{
     font-size: 24px;
     text-align: center;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 a, a:hover {
@@ -70,6 +72,34 @@ ul{
 }
 
 .listItem{
-    background-color: grey;
-    font-color:black;
+    /* background-color: white; */
+    border: 4px solid grey;
+    border-radius: 5px;
+    /* color: black; */
+    margin-bottom: 2em;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.listItem_title{
+    font-size: 20px;
+}
+
+.listItem_table{
+    font-size: 14px;
+    line-height: 2em;
+}
+
+.listItem_table tr{
+    /* margin-bottom: 3em; */
+}
+
+.li_left, .li_right{
+    /* color:black; */
+}
+
+.li_left{
+    text-align: right;
+    border-right: 2px solid #4d4d4d;
 }
