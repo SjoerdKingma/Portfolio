@@ -6,6 +6,7 @@ body{
 
 header{
     font-size: 24px;
+    text-align: center;
 }
 
 a, a:hover {
@@ -16,6 +17,10 @@ a, a:hover {
 ul{
     list-style-type: none;
     padding-inline-start: 0;
+}
+
+#page{
+    padding-right: 10%;
 }
 
 .nav-left{

@@ -1,149 +1,148 @@
 <div id="nav-left">
-  <ul>
-    <!-- Home -->
-    <li>
-      <div class="navButton_img_container">
-        <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-        <div id="navButton_about" class="navButton navButton_parent col-sm-9">
-          Home
-        </div>   
-      </div>
-      <!-- Home Sub Menu -->
-      <ul>
-        <li>
-          <div class="navButton_img_container navButton_img_container_child">
-            <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-            <div id="navButton_about_introduction" class="navButton navButton_child col-sm-9">
-              Introduction
-            </div>
+<ul>
+  <!-- Home -->
+  <li>
+    <div class="navButton_img_container">
+      <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
+      <div id="navButton_about" class="navButton navButton_parent col-sm-9">
+        Home
+      </div>   
+    </div>
+    <!-- Home Sub Menu -->
+    <ul>
+      <li>
+        <div class="navButton_img_container navButton_img_container_child">
+          <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
+          <div id="navButton_about_introduction" class="navButton navButton_child col-sm-9">
+            Introduction
           </div>
-        </li>
-        <li>
-          <div class="navButton_img_container navButton_img_container_child">
-            <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-            <div id="navButton_about_contact" class="navButton navButton_child col-sm-9">
-              Contact
-            </div>
+        </div>
+      </li>
+      <li>
+        <div class="navButton_img_container navButton_img_container_child">
+          <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
+          <div id="navButton_about_contact" class="navButton navButton_child col-sm-9">
+            Contact
           </div>
-        </li>
-        <li>
-          <div class="navButton_img_container navButton_img_container_child">
-            <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-            <div id="navButton_about_timeline" class="navButton navButton_child col-sm-9">
-              Timeline
-            </div>
+        </div>
+      </li>
+      <li>
+        <div class="navButton_img_container navButton_img_container_child">
+          <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
+          <div id="navButton_about_timeline" class="navButton navButton_child col-sm-9">
+            Timeline
           </div>
-        </li>
-      </ul>
-    </li>
-    <!-- Projects -->
-    <li>
-      <div class="navButton_img_container">
-        <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-        <div id="navButton_projects" class="navButton navButton_parent col-sm-9">
-          Projects
-        </div>   
-      </div>
-      <!-- Projects Sub Menu -->
-      <ul>
-        <li>
-          <div class="navButton_img_container navButton_img_container_child">
-            <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-            <div id="navButton_projects_search" class="navButton navButton_child col-sm-9">
-              Project Search
-            </div>
+        </div>
+      </li>
+    </ul>
+  </li>
+  <!-- Projects -->
+  <li>
+    <div class="navButton_img_container">
+      <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
+      <div id="navButton_projects" class="navButton navButton_parent col-sm-9">
+        Projects
+      </div>   
+    </div>
+    <!-- Projects Sub Menu -->
+    <ul>
+      <li>
+        <div class="navButton_img_container navButton_img_container_child">
+          <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
+          <div id="navButton_projects_search" class="navButton navButton_child col-sm-9">
+            Project Search
           </div>
-        </li>
-      </ul>
-    </li>
-  </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
 </div>
 
 <script>
-
 const bookmarks_htmlPages = [
-    //ElementId, URL, Menu depth (0: no depth. 1: first sub menu.)
-      ["navButton_about", "index.html", 0],
-      ["navButton_about_introduction", "index.html", 1],
-      ["navButton_about_contact", "index.html", 1],
-      ["navButton_about_timeline", "index.html", 1],
-      ["navButton_projects", "projects.html", 0],
-      ["navButton_projects_search", "projects.html", 1]
-  ]
+  //ElementId, URL, Menu depth (0: no depth. 1: first sub menu.)
+    ["navButton_about", "index.html", 0],
+    ["navButton_about_introduction", "index.html", 1],
+    ["navButton_about_contact", "index.html", 1],
+    ["navButton_about_timeline", "index.html", 1],
+    ["navButton_projects", "projects.html", 0],
+    ["navButton_projects_search", "projects.html", 1]
+]
 
-  $(document).ready(function(){
-    HideBookmarks();
-    $(".navButton_img_container_child").parent().hide(); // Hide all sub nav buttons
-    ShowSubMenu();
-  });
+$(document).ready(function(){
+  HideBookmarks();
+  $(".navButton_img_container_child").parent().hide(); // Hide all sub nav buttons
+  ShowSubMenu();
+});
 
-  function ShowSubMenu(){
+function ShowSubMenu(){
+  
+  var bookmarkIndex = sessionStorage.getItem("BookmarkIndex");
+
+  console.log("BookmarkIndex: "+ bookmarkIndex)
+  if(bookmarkIndex != null){
+
+    var bookmarkMapping = bookmarks_htmlPages[bookmarkIndex];
+    var bookmarkElementId = bookmarkMapping[0];
+    var bookmarkDepth = bookmarkMapping[2]
     
-    var bookmarkIndex = sessionStorage.getItem("BookmarkIndex");
- 
-    console.log("BookmarkIndex: "+ bookmarkIndex)
-    if(bookmarkIndex != null){
-
-      var bookmarkMapping = bookmarks_htmlPages[bookmarkIndex];
-      var bookmarkElementId = bookmarkMapping[0];
-      var bookmarkDepth = bookmarkMapping[2]
-      
-      // Show sub menu
-      var  ul = null;
-      if(bookmarkDepth == 0){
-        var ul = $("#"+bookmarkElementId).parent().next(); // Sub menu
-      }
-      else if(bookmarkDepth == 1){
-        var ul = $("#"+bookmarkElementId).parent().parent().parent(); // Sub menu
-      }
-      
-      var subButtons = $(ul).children(); //Array of List Item
-      for(var i =0; i<subButtons.length; i++){
-        var li = subButtons[i];
-        $(li).show();
-      }
+    // Show sub menu
+    var  ul = null;
+    if(bookmarkDepth == 0){
+      var ul = $("#"+bookmarkElementId).parent().next(); // Sub menu
     }
-    //Show Bookmarker
-    $('#' +bookmarkElementId).prev().css('visibility', 'visible');
-  }
-
-  $(".navButton").on('mouseover', function(){
-    $(this).css("background-color", "#5865F2");
-  });
-
-  $(".navButton").on('mouseleave', function(){
-    $(this).css("background-color", "inherit");
-  });
-
-  $(".navButton").on('click', function(){
-    //Get clicked element
-    var elementId = $(this).attr('id');
-
-    //Loop through bookmark mapping and get the index of the clicked bookmark
-    var BookmarkIndex = getBookmarkIndexByElementId(elementId);
-
-    console.log("BookmarkIndex: " + BookmarkIndex);
-    if(BookmarkIndex > -1){
-      sessionStorage.setItem("BookmarkIndex",BookmarkIndex);
+    else if(bookmarkDepth == 1){
+      var ul = $("#"+bookmarkElementId).parent().parent().parent(); // Sub menu
     }
-
-    //Redirect to new URL
-    var url = bookmarks_htmlPages[BookmarkIndex][1];
-    window.location.href = url;
-  });
-
-  function getBookmarkIndexByElementId(elementId){
-    for(var i =0; i<bookmarks_htmlPages.length; i++){
-      var currentItem = bookmarks_htmlPages[i][0];
-      if (currentItem == elementId){
-        return i;
-      }
+    
+    var subButtons = $(ul).children(); //Array of List Item
+    for(var i =0; i<subButtons.length; i++){
+      var li = subButtons[i];
+      $(li).show();
     }
   }
+  //Show Bookmarker
+  $('#' +bookmarkElementId).prev().css('visibility', 'visible');
+}
 
-  function HideBookmarks(){
-    $('.bookmark_img').each(function(i, obj) {
-      $(this).css('visibility', 'hidden');
-    });
+$(".navButton").on('mouseover', function(){
+  $(this).css("background-color", "#5865F2");
+});
+
+$(".navButton").on('mouseleave', function(){
+  $(this).css("background-color", "inherit");
+});
+
+$(".navButton").on('click', function(){
+  //Get clicked element
+  var elementId = $(this).attr('id');
+
+  //Loop through bookmark mapping and get the index of the clicked bookmark
+  var BookmarkIndex = getBookmarkIndexByElementId(elementId);
+
+  console.log("BookmarkIndex: " + BookmarkIndex);
+  if(BookmarkIndex > -1){
+    sessionStorage.setItem("BookmarkIndex",BookmarkIndex);
   }
+
+  //Redirect to new URL
+  var url = bookmarks_htmlPages[BookmarkIndex][1];
+  window.location.href = url;
+});
+
+function getBookmarkIndexByElementId(elementId){
+  for(var i =0; i<bookmarks_htmlPages.length; i++){
+    var currentItem = bookmarks_htmlPages[i][0];
+    if (currentItem == elementId){
+      return i;
+    }
+  }
+}
+
+function HideBookmarks(){
+  $('.bookmark_img').each(function(i, obj) {
+    $(this).css('visibility', 'hidden');
+  });
+}
 </script>
