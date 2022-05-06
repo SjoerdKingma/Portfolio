@@ -99,8 +99,6 @@
   function ShowSubMenu() {
 
     var bookmarkIndex = sessionStorage.getItem("BookmarkIndex");
-
-    console.log("ShowSubMenu BookmarkIndex: " + bookmarkIndex)
     if (bookmarkIndex != null) {
 
       var bookmarkMapping = bookmarks_htmlPages[bookmarkIndex];
@@ -147,12 +145,10 @@
   $(".navButton").on('click', function () {
     //Get clicked element
     var elementId = $(this).attr('id');
-    console.log(elementId);
 
     //Loop through bookmark mapping and get the index of the clicked bookmark
     var BookmarkIndex = getBookmarkIndexByElementId(elementId);
 
-    console.log("BookmarkIndex: " + BookmarkIndex);
     if (BookmarkIndex > -1) {
       sessionStorage.setItem("BookmarkIndex", BookmarkIndex);
     }
