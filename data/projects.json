@@ -7,25 +7,37 @@
                 "Html",
                 "Css",
                 "Javascript",
-                "Jquery",
+                "JQuery",
                 "Bootstrap"
             ],
             "description": "My portfolio website. Made fully responsive with bootstrap.",
-            "github": "https://sjoerdkingma.github.io/MyPortfolio/",
+            "github": "",
             "website": "https://sjoerdkingma.github.io/MyPortfolio/"
         },
         {
-            "title": "Care for some tea saboteur",
+            "title": "Online multiplayer card-game",
             "type": "Game, Web",
             "keywords": [
                 "Unity3d",
                 "C#",
                 "Networking",
-                "ASP.NET MVC API"
+                "ASP.NET MVC",
+                "ASP.NET API"
             ],
-            "description": "Online card-game with a steampunk theme.",
-            "github": "https://sjoerdkingma.github.io/MyPortfolio/",
-            "website": "https://sjoerdkingma.github.io/MyPortfolio/"
+            "description": "Care-for-some-tea-saboteur is an online multiplayer card-game with a steampunk theme. Game can be downloaded from the web (website is offline). It features a full game, a website and an API.",
+            "github": "https://github.com/Quikers/Care-for-some-tea-Saboteur",
+            "website": ""
+        },
+        {
+            "title": "Recycle-bin-cleaner",
+            "type": "Windows application",
+            "keywords": [
+                "C#",
+                "Winforms"
+            ],
+            "description": "Removes specific files from the recycle bin based on user input.",
+            "github": "https://github.com/SjoerdKingma/Recycle-bin-cleaner",
+            "website": ""
         }
     ]
 }

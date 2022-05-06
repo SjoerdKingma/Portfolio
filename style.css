@@ -96,3 +96,7 @@ ul{
     float: left;
     max-width: 15%;
 }
+
+.li-right{
+    text-align: left;
+}
