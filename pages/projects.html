@@ -17,7 +17,9 @@
                 var type = json.projects[i].type;
                 var description = json.projects[i].description;
                 var github = json.projects[i].github;
+                var githubAHREF = generateAHREFtag(github);
                 var website = json.projects[i].website;
+                var websiteAHREF = generateAHREFtag(website);
 
                 var keywords = json.projects[i].keywords;
                 var keywords_stringbuilder = "";
@@ -46,13 +48,23 @@
                         .html(description)
                         .end()
                     .find('.field-github')
-                        .html(github)
+                        .html(githubAHREF)
                         .end()
                     .find('.field-website')
-                        .html(website)
+                        .html(websiteAHREF)
                         .end()
                     .appendTo($('#dataList-placeholder')); // Add to data list
             }
         });
+    }
+
+    function generateAHREFtag(url){
+        var stringbuilder = '<a href="';
+        stringbuilder += url;
+        stringbuilder += '">';
+        stringbuilder += url;
+        stringbuilder += '</a>';
+
+        return stringbuilder;
     }
 </script>
