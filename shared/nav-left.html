@@ -92,7 +92,8 @@
 <script>  
   $(document).ready(function () {
     HideBookmarks();
-    $(".navButton-img-container-child").parent().hide(); // Hide all sub nav buttons
+    
+    $(".navButton-img-container-child").parent().hide();  // Hide all sub nav buttons
     ShowSubMenu();
   });
 
@@ -107,23 +108,23 @@
 
       var navButtonElement = $("#" + navButtonElementId);
 
-      // Show sub menu
-      $('#' + navButtonElementId).prev().css('visibility', 'visible'); //Show Bookmarker
+      
       var ul = null;
       if (bookmarkDepth == 0) {
-        var ul = navButtonElement.parent().next(); // Sub menu
+        var ul = navButtonElement.parent().next(); // Get sub menu
 
-        //Show another bookmarker for the first child (in the bookmarker hierarchy).
+        //Show 2nd  bookmarker for the first child (in the bookmarker hierarchy).
         //                                div      ul                li                  div              img
         var imgElement = navButtonElement.parent().next().children().first().children().first().children().first();
         $(imgElement).css('visibility', 'visible');
       }
       else if (bookmarkDepth == 1) {
-        var ul = navButtonElement.parent().parent().parent(); // Sub menu
-        
+        $('#' + navButtonElementId).prev().css('visibility', 'visible'); //Show Bookmarker
+        var ul = navButtonElement.parent().parent().parent(); // Get sub menu
+        //Show 2nd bookmaker for the parent (in the bookmarker hierarchy).
         //                                 div      li        ul      li                 div                img
-        var imgElement = navButtonElement.parent().parent().parent().parent().children().first().children().first();
-        $(imgElement).css('visibility', 'visible');
+        //var imgElement = navButtonElement.parent().parent().parent().parent().children().first().children().first();
+        //$(imgElement).css('visibility', 'visible');
       }
 
       var subButtons = $(ul).children(); //Array of List Item
