@@ -30,20 +30,20 @@ ul{
     padding-right: 0;
 }
 
-.navButton_img_container{
+.navButton-img-container{
     overflow:hidden;
     margin-top: 0.3em;
     margin-bottom: 0.3em;
 }
 
-.img_container{
+.img-container{
     width: 30px;
     height: 30px;
     display:block;
     margin:auto;
 }
 
-.bookmark_img{
+.bookmark-img{
     width: 25px;
     height: 25px;
     float:left;
@@ -63,11 +63,11 @@ ul{
     overflow: hidden;
 }
 
-.navButton_child{
+.navButton-child{
     font-size: 14px;
 }
 
-.navButton_img_container_child{
+.navButton-img-container-child{
     padding-inline-start: 15%;
 }
 
@@ -82,24 +82,24 @@ ul{
     padding-bottom: 1em;
 }
 
-.listItem_title{
+.listItem-title{
     font-size: 20px;
 }
 
-.listItem_table{
+.listItem-table{
     font-size: 14px;
     line-height: 2em;
 }
 
-.listItem_table tr{
+.listItem-table tr{
     /* margin-bottom: 3em; */
 }
 
-.li_left, .li_right{
+.li-left, .li-right{
     /* color:black; */
 }
 
-.li_left{
+.li-left{
     text-align: right;
     border-right: 2px solid #4d4d4d;
 }

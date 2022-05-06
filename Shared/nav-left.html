@@ -2,26 +2,26 @@
   <ul>
     <!-- Home -->
     <li>
-      <div class="navButton_img_container">
-        <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-        <div id="navButton_about" class="navButton navButton_parent col-sm-9">
+      <div class="navButton-img-container">
+        <img class="bookmark-img" src="img/bookmark.png" alt="Bookmark">
+        <div id="navButton-about" class="navButton navButton-parent col-sm-9">
           Home
         </div>
       </div>
       <!-- Home Sub Menu -->
       <ul>
         <li>
-          <div class="navButton_img_container navButton_img_container_child">
-            <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-            <div id="navButton_about_introduction" class="navButton navButton_child col-sm-9">
+          <div class="navButton-img-container navButton-img-container-child">
+            <img class="bookmark-img" src="img/bookmark.png" alt="Bookmark">
+            <div id="navButton-about-introduction" class="navButton navButton-child col-sm-9">
               Introduction
             </div>
           </div>
         </li>
         <li>
-          <div class="navButton_img_container navButton_img_container_child">
-            <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-            <div id="navButton_about_contact" class="navButton navButton_child col-sm-9">
+          <div class="navButton-img-container navButton-img-container-child">
+            <img class="bookmark-img" src="img/bookmark.png" alt="Bookmark">
+            <div id="navButton-about-contact" class="navButton navButton-child col-sm-9">
               Contact
             </div>
           </div>
@@ -30,18 +30,18 @@
     </li>
     <!-- Projects -->
     <li>
-      <div class="navButton_img_container">
-        <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-        <div id="navButton_projects" class="navButton navButton_parent col-sm-9">
+      <div class="navButton-img-container">
+        <img class="bookmark-img" src="img/bookmark.png" alt="Bookmark">
+        <div id="navButton-projects" class="navButton navButton-parent col-sm-9">
           Projects
         </div>
       </div>
       <!-- Projects Sub Menu -->
       <ul>
         <li>
-          <div class="navButton_img_container navButton_img_container_child">
-            <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-            <div id="navButton_projects_search" class="navButton navButton_child col-sm-9">
+          <div class="navButton-img-container navButton-img-container-child">
+            <img class="bookmark-img" src="img/bookmark.png" alt="Bookmark">
+            <div id="navButton-projects-search" class="navButton navButton-child col-sm-9">
               Search
             </div>
           </div>
@@ -50,17 +50,17 @@
     </li>
     <!-- Components -->
     <li>
-      <div class="navButton_img_container">
-        <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-        <div id="navButton_components" class="navButton navButton_parent col-sm-9">
+      <div class="navButton-img-container">
+        <img class="bookmark-img" src="img/bookmark.png" alt="Bookmark">
+        <div id="navButton-components" class="navButton navButton-parent col-sm-9">
           Components
         </div>
       </div>
       <ul>
         <li>
-          <div class="navButton_img_container navButton_img_container_child">
-            <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-            <div id="navButton_components_search" class="navButton navButton_child col-sm-9">
+          <div class="navButton-img-container navButton-img-container-child">
+            <img class="bookmark-img" src="img/bookmark.png" alt="Bookmark">
+            <div id="navButton-components-search" class="navButton navButton-child col-sm-9">
               Search
             </div>
           </div>
@@ -69,17 +69,17 @@
     </li>
     <!-- Coding Challenges -->
     <li>
-      <div class="navButton_img_container">
-        <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-        <div id="navButton_challenges" class="navButton navButton_parent col-sm-9">
+      <div class="navButton-img-container">
+        <img class="bookmark-img" src="img/bookmark.png" alt="Bookmark">
+        <div id="navButton-challenges" class="navButton navButton-parent col-sm-9">
           Coding Challenges
         </div>
       </div>
       <ul>
         <li>
-          <div class="navButton_img_container navButton_img_container_child">
-            <img class="bookmark_img" src="img/bookmark.png" alt="Bookmark">
-            <div id="navButton_challenges_search" class="navButton navButton_child col-sm-9">
+          <div class="navButton-img-container navButton-img-container-child">
+            <img class="bookmark-img" src="img/bookmark.png" alt="Bookmark">
+            <div id="navButton-challenges-search" class="navButton navButton-child col-sm-9">
               Search
             </div>
           </div>
@@ -92,7 +92,7 @@
 <script>  
   $(document).ready(function () {
     HideBookmarks();
-    $(".navButton_img_container_child").parent().hide(); // Hide all sub nav buttons
+    $(".navButton-img-container-child").parent().hide(); // Hide all sub nav buttons
     ShowSubMenu();
   });
 
@@ -166,7 +166,7 @@
   });
 
   function HideBookmarks() {
-    $('.bookmark_img').each(function (i, obj) {
+    $('.bookmark-img').each(function (i, obj) {
       $(this).css('visibility', 'hidden');
     });
   }
