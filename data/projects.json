@@ -11,7 +11,7 @@
                 "Bootstrap"
             ],
             "description": "My portfolio website. Made fully responsive with bootstrap.",
-            "github": "",
+            "github": "https://github.com/SjoerdKingma/Portfolio",
             "website": "https://sjoerdkingma.github.io/MyPortfolio/"
         },
         {
@@ -19,10 +19,11 @@
             "type": "Game, Web",
             "keywords": [
                 "Unity3d",
+                "Networking TCP",
                 "C#",
-                "Networking",
-                "ASP.NET MVC",
-                "ASP.NET API"
+                "PHP MVC",
+                "SQL Database",
+                "Bootstrap"
             ],
             "description": "Care-for-some-tea-saboteur is an online multiplayer card-game with a steampunk theme. Game can be downloaded from the web (website is offline). It features a full game, a website and an API.",
             "github": "https://github.com/Quikers/Care-for-some-tea-Saboteur",
@@ -37,6 +38,19 @@
             ],
             "description": "Removes specific files from the recycle bin based on user input.",
             "github": "https://github.com/SjoerdKingma/Recycle-bin-cleaner",
+            "website": ""
+        },
+        {
+            "title": "PHP school assignment",
+            "type": "Web",
+            "keywords": [
+                "Html",
+                "Css",
+                "Javascript",
+                "Php"
+            ],
+            "description": "A simple sign up form for a Hearthstone tournament.",
+            "github": "https://github.com/SjoerdKingma/Tournament-Registration",
             "website": ""
         }
     ]
