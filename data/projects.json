@@ -1,0 +1,18 @@
+{
+    "projects":[
+        {
+            "title": "My Portfolio Website",
+            "type": "Web",
+            "Keywords": [
+                "Html",
+                "Css",
+                "Javascript",
+                "Jquery",
+                "Bootstrap"
+            ],
+            "Description": "My portfolio website. Fully responsive.",
+            "Github Project": "https://sjoerdkingma.github.io/MyPortfolio/",
+            "Website": "https://sjoerdkingma.github.io/MyPortfolio/"
+        }
+    ]
+}

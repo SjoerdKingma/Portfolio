@@ -3,21 +3,54 @@
 
 
 <script>
-    var listItemHtml = "";
-    $.get("Shared/listItem.html", function (data) {
-        loadData(data);
+    $.get("Shared/listItem.html", function (listItem) {
+        console.log("1. Shared loaded...");
+        loadDataIntoListItem(listItem);
         //listItemHtml = data;
         //alert(listItemHtml);
     });
 
-    function loadData(li) {
-        //$('#dataList-placeholder').load('Shared/listItem.html');
-        
-        //$('input').prop('outerHTML');
+    function loadDataIntoListItem(listItem) {
+        console.log("2. loadDataIntoListItem method...");
+        //Get Data
+        $.getJSON("data/projects.json", function (json) {
+            console.log("3. Json loaded...");
+            var type = json.projects[0].type;
+            $(listItem).find('.field_type').html(type).end().appendTo($('#dataList-placeholder'));
+            // console.log("Json: ");
+            // console.log(json);
 
-        for (var i = 0; i < 3; i++) {
+            // console.log("listItem: ");
+            // console.log($(listItem));
 
-            $('#dataList-placeholder').append(li);
-        }
+            //Modify listItem
+            // var fieldType = $(listItem).find('.field_type');
+            // fieldType.html('hellooo');
+            // console.log("4. fieldType.html set to hellooo...");
+            // console.log("fieldType: ");
+            // console.log(fieldType[0]);
+            // // fieldType.html(json.projects[0].type);
+            // //fieldType.html("hello");
+            
+            // $(listItem).find('.field_type').html('Duck');
+            // console.log("5. fieldType.html set to Duck...");
+            // console.log("listItem inner html should display Duck: ");
+            // console.log($(listItem).find('.field_type').html());
+
+            
+
+            // var fieldType = $(listItem).find('.field_type')[0];
+            // console.log("fieldType: ");
+            // console.log(fieldType);
+
+            // console.log($(listItem).find('.field_type').html()); //Output: Cow
+            // $(listItem).find('.field_type').html("Duck");            
+            // console.log($(listItem).find('.field_type').html()); //Output: Cow (I expected duck)
+
+            // //Add listItem
+            // for (var i = 0; i < 6; i++) {
+            //     $('#dataList-placeholder').append(listItem);
+            // }
+        });
     }
 </script>
