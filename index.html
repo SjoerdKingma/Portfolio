@@ -27,12 +27,12 @@
 
     <!-- Load header-->
     <script>
-        $('#header-placeholder').load('Shared/header.html');
+        $('#header-placeholder').load('shared/header.html');
     </script>
 
     <!-- Load left nav-->
     <script>
-        $('#nav-left-placeholder').load('Shared/nav-left.html');
+        $('#nav-left-placeholder').load('shared/nav-left.html');
     </script>
                 
      <!-- Load page-->
@@ -41,7 +41,7 @@
          if(bookmarkIndex == null){
              bookmarkIndex = 0;
          }
-         var url = getUrlByIndex(bookmarkIndex); //Method can be found in Shared/page-mapper/js
+         var url = getUrlByIndex(bookmarkIndex); //Method can be found in shared/page-mapper/js 
         $('#page-placeholder').load('pages/'+ url);
     </script>
 
