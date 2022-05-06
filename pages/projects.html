@@ -17,11 +17,15 @@
             console.log("3. Json loaded...");
             var type = json.projects[0].type;
             $(listItem).find('.field_type').html(type).end().appendTo($('#dataList-placeholder'));
+
+            var type = json.projects[0].Description;
+            $(listItem).find('.field_type').html(type).end().appendTo($('#dataList-placeholder'));
+
             // console.log("Json: ");
             // console.log(json);
 
-            // console.log("listItem: ");
-            // console.log($(listItem));
+            console.log("listItem: ");
+            console.log($(listItem));
 
             //Modify listItem
             // var fieldType = $(listItem).find('.field_type');

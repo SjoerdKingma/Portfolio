@@ -3,16 +3,16 @@
         {
             "title": "My Portfolio Website",
             "type": "Web",
-            "Keywords": [
+            "keywords": [
                 "Html",
                 "Css",
                 "Javascript",
                 "Jquery",
                 "Bootstrap"
             ],
-            "Description": "My portfolio website. Fully responsive.",
-            "Github Project": "https://sjoerdkingma.github.io/MyPortfolio/",
-            "Website": "https://sjoerdkingma.github.io/MyPortfolio/"
+            "description": "My portfolio website. Fully responsive.",
+            "github": "https://sjoerdkingma.github.io/MyPortfolio/",
+            "website": "https://sjoerdkingma.github.io/MyPortfolio/"
         }
     ]
 }
