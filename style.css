@@ -72,10 +72,8 @@ ul{
 }
 
 .listItem{
-    /* background-color: white; */
     border: 4px solid grey;
     border-radius: 5px;
-    /* color: black; */
     margin-bottom: 2em;
     text-align: center;
     padding-top: 1em;
@@ -89,14 +87,6 @@ ul{
 .listItem-table{
     font-size: 14px;
     line-height: 2em;
-}
-
-.listItem-table tr{
-    /* margin-bottom: 3em; */
-}
-
-.li-left, .li-right{
-    /* color:black; */
 }
 
 .li-left{
