@@ -1,7 +1,7 @@
 {
     "projects":[
         {
-            "title": "My Portfolio Website test",
+            "title": "My Portfolio Website",
             "type": "Web",
             "keywords": [
                 "Html",
@@ -10,7 +10,20 @@
                 "Jquery",
                 "Bootstrap"
             ],
-            "description": "My portfolio website. Fully responsive.",
+            "description": "My portfolio website. Made fully responsive with bootstrap.",
+            "github": "https://sjoerdkingma.github.io/MyPortfolio/",
+            "website": "https://sjoerdkingma.github.io/MyPortfolio/"
+        },
+        {
+            "title": "Care for some tea saboteur",
+            "type": "Game, Web",
+            "keywords": [
+                "Unity3d",
+                "C#",
+                "Networking",
+                "ASP.NET MVC API"
+            ],
+            "description": "Online card-game with a steampunk theme.",
             "github": "https://sjoerdkingma.github.io/MyPortfolio/",
             "website": "https://sjoerdkingma.github.io/MyPortfolio/"
         }

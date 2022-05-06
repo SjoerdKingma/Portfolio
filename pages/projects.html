@@ -9,52 +9,53 @@
     });
 
     function loadDataIntoListItem(listItem) {
-        console.log("2. loadDataIntoListItem method...");
         //Get Data
         $.getJSON("data/projects.json", function (json) {
-            console.log("3. Json loaded...");
-            var title = json.projects[0].title;
-            var type = json.projects[0].type;
-            var description = json.projects[0].description;
-            var github = json.projects[0].github;
-            var website = json.projects[0].website;
 
-            var keywords = json.projects[0].keywords;
-            var keywords_stringbuilder = "";
+            for(var i =0; i<json.projects.length; i++){
+                var title = json.projects[i].title;
+                var type = json.projects[i].type;
+                var description = json.projects[i].description;
+                var github = json.projects[i].github;
+                var website = json.projects[i].website;
 
-            for(var i =0; i<keywords.length; i++){
-                keywords_stringbuilder += keywords[i] + ", ";
+                var keywords = json.projects[i].keywords;
+                var keywords_stringbuilder = "";
+
+                for(var j =0; j<keywords.length; j++){
+                    keywords_stringbuilder += keywords[j] + ", ";
+                }
+
+                //Remove final seperator
+                keywords_stringbuilder = keywords_stringbuilder.slice(0, keywords_stringbuilder.length - 2)
+
+                //Add a period
+                keywords_stringbuilder += ".";
+
+                $(listItem)
+                    .find('.listItem_title')
+                        .html(title)
+                        .end()
+                    .find('.field_type')
+                        .html(type)
+                        .end()
+                    .find('.field_keywords')
+                        .html(keywords_stringbuilder)
+                        .end()
+                    .find('.field_description')
+                        .html(description)
+                        .end()
+                    .find('.field_github')
+                        .html(github)
+                        .end()
+                    .find('.field_website')
+                        .html(website)
+                        .end()
+                    .appendTo($('#dataList-placeholder')); // Add to data list
+
+                console.log("Added listItem: "+ title);
+                console.log($(listItem));
             }
-
-            //Remove final seperator
-            keywords_stringbuilder = keywords_stringbuilder.slice(0, keywords_stringbuilder.length - 2)
-
-            //Add a period
-            keywords_stringbuilder += ".";
-
-            $(listItem)
-                .find('.listItem_title')
-                    .html(title)
-                    .end()
-                .find('.field_type')
-                    .html(type)
-                    .end()
-                .find('.field_keywords')
-                    .html(keywords_stringbuilder)
-                    .end()
-                .find('.field_description')
-                    .html(description)
-                    .end()
-                .find('.field_github')
-                    .html(github)
-                    .end()
-                .find('.field_website')
-                    .html(website)
-                    .end()
-                .appendTo($('#dataList-placeholder'));
-
-            console.log("listItem: ");
-            console.log($(listItem));
         });
     }
 </script>
