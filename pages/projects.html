@@ -3,11 +3,13 @@
 
 
 <script>
-    $.get("Shared/listItem.html", function (listItem) {
+    $(document).ready(function(){
+        $.get("Shared/listItem.html", function (listItem) {
         console.log("1. Shared loaded...");
         loadDataIntoListItem(listItem);
         //listItemHtml = data;
         //alert(listItemHtml);
+    });
     });
 
     function loadDataIntoListItem(listItem) {
@@ -16,10 +18,19 @@
         $.getJSON("data/projects.json", function (json) {
             console.log("3. Json loaded...");
             var type = json.projects[0].type;
-            $(listItem).find('.field_type').html(type).end().appendTo($('#dataList-placeholder'));
+            var description = json.projects[0].description;
 
-            var type = json.projects[0].Description;
-            $(listItem).find('.field_type').html(type).end().appendTo($('#dataList-placeholder'));
+            $(listItem)
+                .find('.field_type')
+                    .html(type)
+                    .end()
+                .find('.field_description')
+                    .html(description)
+                    .end()
+                .appendTo($('#dataList-placeholder'));
+
+            
+            //$(listItem).find('.field_description').html(description).end().appendTo($('#dataList-placeholder'));
 
             // console.log("Json: ");
             // console.log(json);
