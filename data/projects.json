@@ -12,7 +12,7 @@
             ],
             "description": "My portfolio website. Made fully responsive with bootstrap.",
             "github": "https://github.com/SjoerdKingma/Portfolio",
-            "website": "https://sjoerdkingma.github.io/MyPortfolio/"
+            "website": "https://sjoerdkingma.github.io/Portfolio/"
         },
         {
             "title": "Online multiplayer card-game",
@@ -25,12 +25,12 @@
                 "SQL Database",
                 "Bootstrap"
             ],
-            "description": "Care-for-some-tea-saboteur is an online multiplayer card-game with a steampunk theme. Game can be downloaded from the web (website is offline). It features a full game, a website and an API.",
+            "description": "Care-for-some-tea-saboteur is an online multiplayer card-game with a steampunk theme. Game can be downloaded from the web (website is offline). It features a full game, a website and an API. This served as my MBO graduation project.",
             "github": "https://github.com/Quikers/Care-for-some-tea-Saboteur",
             "website": ""
         },
         {
-            "title": "Recycle-bin-cleaner",
+            "title": "Recycle bin cleaner",
             "type": "Windows application",
             "keywords": [
                 "C#",
@@ -49,8 +49,19 @@
                 "Javascript",
                 "Php"
             ],
-            "description": "A simple sign up form for a Hearthstone tournament.",
+            "description": "A simple sign up form for a Hearthstone tournament. This was an assignment for school.",
             "github": "https://github.com/SjoerdKingma/Tournament-Registration",
+            "website": ""
+        },
+        {
+            "title": "Easy Calculator",
+            "type": "Windows-application",
+            "keywords": [
+                "C#",
+                "Winforms"
+            ],
+            "description": "A calculator specifically designed to make lots of calculations by hand.",
+            "github": "https://github.com/SjoerdKingma/Easy-Calculator",
             "website": ""
         }
     ]
