@@ -46,6 +46,14 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="navButton-img-container navButton-img-container-child">
+            <img class="bookmark-img" src="img/bookmark.png" alt="Bookmark">
+            <div id="navButton-projects-current" class="navButton navButton-child col-sm-9">
+              Current: None
+            </div>
+          </div>
+        </li>
       </ul>
     </li>
     <!-- Components -->
@@ -148,7 +156,7 @@
     var elementId = $(this).attr('id');
 
     //Loop through bookmark mapping and get the index of the clicked bookmark
-    var BookmarkIndex = getBookmarkIndexByElementId(elementId);
+    var BookmarkIndex = getBookmarkIndexByElementId(elementId); //Method can be found in shared/page-mapper.js
 
     if (BookmarkIndex > -1) {
       sessionStorage.setItem("BookmarkIndex", BookmarkIndex);

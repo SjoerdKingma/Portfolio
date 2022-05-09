@@ -44,7 +44,16 @@
          if(bookmarkIndex == null){
              bookmarkIndex = 0;
          }
-         var url = getUrlByIndex(bookmarkIndex); //Method can be found in shared/page-mapper.js 
+
+         var url = "";
+
+         if(bookmarkIndex == 5){ //DetailsPage
+            var activeProject = sessionStorage.getItem("ActiveProject");
+            url = getUrlFromDetailName(activeProject); //Method can be found in shared/page-mapper.js 
+         }
+         else{
+            url = getUrlByIndex(bookmarkIndex); //Method can be found in shared/page-mapper.js 
+         }
         $('#page-placeholder').load('pages/'+ url);
     </script>
 
