@@ -1,0 +1,17 @@
+{
+    "components": [
+        {
+            "title": "Dummy component",
+            "type": "Test",
+            "keywords": [
+                "Html",
+                "Css",
+                "Javascript",
+                "JQuery",
+                "Bootstrap"
+            ],
+            "description": "Dummy",
+            "github": "https://github.com/SjoerdKingma/Portfolio"
+        }
+    ]
+}

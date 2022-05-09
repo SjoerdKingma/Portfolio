@@ -1,1 +1,71 @@
-<div>Under construction...</div>
+<div id="searchBar-placeholder"></div>
+<ul id="dataList-placeholder"></ul>
+
+<script>
+    $(document).ready(function(){
+        $.get("shared/listItem-component.html", function (listItem) {
+            loadDataIntoProjectListItem(listItem);
+        });
+    });
+
+    function loadDataIntoProjectListItem(listItem) {
+        $.getJSON("data/components.json", function (json) {
+
+            //for each project
+            for(var i =0; i<json.components.length; i++){
+                var title = json.components[i].title;
+                var type = json.components[i].type;
+                var description = json.components[i].description;
+                var github = json.components[i].github;
+                var githubAHREF = generateAHREFtag(github);
+                var website = json.components[i].website;
+                var websiteAHREF = generateAHREFtag(website);
+
+                var keywords = json.components[i].keywords;
+                var keywords_stringbuilder = "";
+
+                //for each keyword
+                for(var j =0; j<keywords.length; j++){
+                    keywords_stringbuilder += keywords[j] + ", ";
+                }
+
+                //Remove final seperator
+                keywords_stringbuilder = keywords_stringbuilder.slice(0, keywords_stringbuilder.length - 2)
+
+                //Add a period
+                keywords_stringbuilder += ".";
+
+                $(listItem)
+                    .find('.listItem-title')
+                        .html(title)
+                        .end()
+                    .find('.field-type')
+                        .html(type)
+                        .end()
+                    .find('.field-keywords')
+                        .html(keywords_stringbuilder)
+                        .end()
+                    .find('.field-description')
+                        .html(description)
+                        .end()
+                    .find('.field-github')
+                        .html(githubAHREF)
+                        .end()
+                    .find('.field-website')
+                        .html(websiteAHREF)
+                        .end()
+                    .appendTo($('#dataList-placeholder')); // Add to data list
+            }
+        });
+    }
+
+    function generateAHREFtag(url){
+        var stringbuilder = '<a href="';
+        stringbuilder += url;
+        stringbuilder += '">';
+        stringbuilder += url;
+        stringbuilder += '</a>';
+
+        return stringbuilder;
+    }
+</script>
