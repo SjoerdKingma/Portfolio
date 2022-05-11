@@ -62,16 +62,15 @@
     }
 
     function generateAHREFtag(url){
-        return generateAHREFtag(url, url);
+        return generateAHREFtagWithText(url, url);
     }
 
-    function generateAHREFtag(url, text){
+    function generateAHREFtagWithText(url, text){
         var stringbuilder = '<a href="';
         stringbuilder += url;
         stringbuilder += '">';
         stringbuilder += text;
         stringbuilder += '</a>';
-        console.log(stringbuilder);
         return stringbuilder;
     }
 
@@ -84,6 +83,9 @@
     
 
     function onDetailsClick(obj) {
-        console.log(obj);
+        sessionStorage.setItem("ActiveProject", obj.text());
+        sessionStorage.setItem("BookmarkIndex", 5);
+        console.log(obj.text + "was clicked!");
+        location.reload();
     }
 </script>
