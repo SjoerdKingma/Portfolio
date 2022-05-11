@@ -16,16 +16,21 @@
 
 <h3>Technical details</h3>
 <p>
-    My portfolio website is made with Html, Css, Bootstrap, Javascript and Jquery. 
+    My portfolio website is made from scratch with Html, Css, Bootstrap, Javascript and Jquery. 
     It's front-end only. Any information about projects, components and challenges is stored in json files on the web server and retrieved with Javascript.
 </p>
 
 <h4>Loading pages</h4>
 <p>
-    Instead of loading a new html page each time, this website stores page-specific info in seperate html components and loads these into a placeholder div in index.html.
+    Instead of loading a new html page each time a link is clicked, the webserver stores page-specific content in seperate html components and loads these into a placeholder div in index.html.
     On clicking a navigation link, the JS code in index.html will retrieve the corresponding html component, and load that into the page. It then refreshes the page to display this new component.
 </p>
 <p>
     This modulair approach helps to avoid having to edit all pages their html files upon making changes to the shared elements.
     A downside of this approach is it becomes impossible to debug code, as the javascript code is executed before the DOM element is loaded. The console.log method still works, but step-by-step debugging isn't possible.
 </p>
+
+<p>This image shows how the pages are loaded: </p>
+
+<img src="img/code_load_page.png" style="width:100%;">
+
