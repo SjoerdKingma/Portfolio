@@ -1,1 +1,26 @@
-myportfoliowebsite
+<h2>My Portfolio Website</h2>
+
+<p>
+    Github: <a href="https://github.com/SjoerdKingma/Portfolio">https://github.com/SjoerdKingma/Portfolio</a> 
+</p>
+
+<h3>Intro</h3>
+<p> 
+    This portfolio website contains some of the projects I worked on, as well as components and coding challenges.
+    Components are pieces of code which I'm either proud to show, or redeemed useful in the future.
+    On each individual project, component and coding challenge can be clicked to view additional information.    
+</p>
+<p>
+    I made this website in my spare time as a hobby.
+</p>
+
+<h3>Technical details</h3>
+<p>
+    My portfolio website is made with Html, Css, Bootstrap, Javascript and Jquery. 
+    It's front-end only. Any information about projects, components and challenges is stored in json files on the web server and retrieved with Javascript.
+</p>
+
+<h4>Loading pages</h4>
+Instead of loading a new html page each time, this website stores page-specific info in seperate html components and loads these in the index.html.
+On clicking a link, JS code in index.html will retrieve the corresponding URL for the html component, and load it into index.html. It then refreshes the page to display the new component.
+This modulair approach helps to avoid having to edit all pages their html files upon making changes to the shared elements.
