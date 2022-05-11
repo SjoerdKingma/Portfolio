@@ -83,6 +83,10 @@ ul{
 
 .listItem-title{
     font-size: 20px;
+}
+
+.listItem-title:hover{
+    cursor: pointer;
     text-decoration: underline;
 }
 
