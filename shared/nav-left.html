@@ -103,12 +103,17 @@
     $(".navButton-img-container-child").parent().hide();  // Hide all sub nav buttons
     UpdateCurrentProjectLabel();
     ShowNavSubMenu();
-    
   });
 
   function UpdateCurrentProjectLabel(){
     var project = sessionStorage.getItem("ActiveProject");
-    $('#navButton-projects-current').text(project);
+    if(project == null){
+      $('#navButton-projects-current').text('Current project: None');
+    }
+    else{
+      $('#navButton-projects-current').text(project);
+    }
+    
   }
 
   function ShowNavSubMenu() {
