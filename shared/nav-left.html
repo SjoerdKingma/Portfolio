@@ -99,13 +99,19 @@
 
 <script>  
   $(document).ready(function () {
-    HideBookmarks();
-    
+    HideBookmarks();    
     $(".navButton-img-container-child").parent().hide();  // Hide all sub nav buttons
-    ShowSubMenu();
+    UpdateCurrentProjectLabel();
+    ShowNavSubMenu();
+    
   });
 
-  function ShowSubMenu() {
+  function UpdateCurrentProjectLabel(){
+    var project = sessionStorage.getItem("ActiveProject");
+    $('#navButton-projects-current').text(project);
+  }
+
+  function ShowNavSubMenu() {
 
     var bookmarkIndex = sessionStorage.getItem("BookmarkIndex");
     if (bookmarkIndex != null) {
