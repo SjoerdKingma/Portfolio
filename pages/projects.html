@@ -14,6 +14,7 @@
             //for each project
             for(var i =0; i<json.projects.length; i++){
                 var title = json.projects[i].title;
+                //var titleAHREF = generateAHREFtag(getUrlFromDetailName(title), title)
                 var type = json.projects[i].type;
                 var description = json.projects[i].description;
                 var github = json.projects[i].github;
@@ -35,9 +36,10 @@
                 //Add a period
                 keywords_stringbuilder += ".";
 
+                //Add the fields to the HTML template
                 $(listItem)
                     .find('.listItem-title')
-                        .html(title)
+                        .html(generateTitleDiv(title))
                         .end()
                     .find('.field-type')
                         .html(type)
@@ -60,12 +62,29 @@
     }
 
     function generateAHREFtag(url){
+        return generateAHREFtagWithText(url, url);
+    }
+
+    function generateAHREFtagWithText(url, text){
         var stringbuilder = '<a href="';
         stringbuilder += url;
         stringbuilder += '">';
-        stringbuilder += url;
+        stringbuilder += text;
         stringbuilder += '</a>';
-
         return stringbuilder;
+    }
+
+    function generateTitleDiv(title){
+        var stringbuilder = '<div onclick="onDetailsClick($(this))">';
+        stringbuilder += title;
+        stringbuilder += '</div>';
+        return stringbuilder;
+    }
+
+    function onDetailsClick(obj) {
+        sessionStorage.setItem("ActiveProject", obj.text());
+        sessionStorage.setItem("BookmarkIndex", 5);
+        console.log(obj.text + "was clicked!");
+        location.reload();
     }
 </script>

@@ -41,11 +41,21 @@
      <!-- Load page-->
      <script>
          var bookmarkIndex = sessionStorage.getItem("BookmarkIndex");
-         if(bookmarkIndex == null){
+         if(bookmarkIndex == null){ //BookmarkIndex is null when the user hasn't clicked any links yet.
              bookmarkIndex = 0;
          }
-         var url = getUrlByIndex(bookmarkIndex); //Method can be found in shared/page-mapper.js 
-        $('#page-placeholder').load('pages/'+ url);
+
+         var url = "";
+
+         if(bookmarkIndex == 5){ //DetailsPage
+            var activeProject = sessionStorage.getItem("ActiveProject");
+            url = getUrlFromDetailName(activeProject); //Method can be found in shared/page-mapper.js 
+            console.log("url: "+ url);
+         }
+         else{
+            url = getUrlByBookmarkIndex(bookmarkIndex); //Method can be found in shared/page-mapper.js 
+         }
+        $('#page-placeholder').load(url);
     </script>
 
     <!-- Load bootstrap JS -->
