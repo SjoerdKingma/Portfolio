@@ -21,6 +21,11 @@
 </p>
 
 <h4>Loading pages</h4>
-Instead of loading a new html page each time, this website stores page-specific info in seperate html components and loads these in the index.html.
-On clicking a link, JS code in index.html will retrieve the corresponding URL for the html component, and load it into index.html. It then refreshes the page to display the new component.
-This modulair approach helps to avoid having to edit all pages their html files upon making changes to the shared elements.
+<p>
+    Instead of loading a new html page each time, this website stores page-specific info in seperate html components and loads these into a placeholder div in index.html.
+    On clicking a navigation link, the JS code in index.html will retrieve the corresponding html component, and load that into the page. It then refreshes the page to display this new component.
+</p>
+<p>
+    This modulair approach helps to avoid having to edit all pages their html files upon making changes to the shared elements.
+    A downside of this approach is it becomes impossible to debug code, as the javascript code is executed before the DOM element is loaded. The console.log method still works, but step-by-step debugging isn't possible.
+</p>
