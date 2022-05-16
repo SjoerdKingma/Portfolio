@@ -110,3 +110,7 @@ ul{
 .li-right{
     text-align: left;
 }
+
+#contact-table td{
+    padding-bottom: 0.3em;
+}
