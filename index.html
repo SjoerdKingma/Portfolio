@@ -1,18 +1,18 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Kingma S.J.</title>
 
     <!-- Load Jquery -->
     <script src="jquery-3.6.0.js"></script>
 
     <!-- Load bootstrap css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
     <!-- Load css -->
     <link rel="stylesheet" href="style.css">
@@ -20,6 +20,7 @@
     <!-- Load icon -->
     <link rel="icon" href="img/favicon.png">
 </head>
+
 <body>
     <div id="header-placeholder" class="col-sm-12"></div>
     <div id="nav-left-placeholder" class="col-sm-3"></div>
@@ -28,41 +29,42 @@
     <!-- Load Page Mapper -->
     <script type="text/javascript" src="shared/page-mapper.js"></script>
 
-    <!-- Load header-->
     <script>
-        $('#header-placeholder').load('shared/header.html');
-    </script>
+        $(document).ready(function () {
+            // Load header
+            $('#header-placeholder').load('shared/header.html');
+            // Load left nav
+            $('#nav-left-placeholder').load('shared/nav-left.html');
+            // Load page content
+            loadPage();
+        });
 
-    <!-- Load left nav-->
-    <script>
-        $('#nav-left-placeholder').load('shared/nav-left.html');
-    </script>
-                
-     <!-- Load page-->
-     <script>
-         var bookmarkIndex = sessionStorage.getItem("BookmarkIndex");
-         if(bookmarkIndex == null){ //BookmarkIndex is null when the user hasn't clicked any links yet.
-             bookmarkIndex = 0;
-         }
+        function loadPage() {
+            var bookmarkIndex = sessionStorage.getItem("BookmarkIndex");
+            
+            if (bookmarkIndex == null) { //BookmarkIndex is null if the user hasn't clicked any links yet.
+                bookmarkIndex = 0; //Set landing page to the introduction page
+            }
 
-         var url = "";
+            var url = "";
+            if (bookmarkIndex == 5) { //User requested a dynamic project details page
+                var activeProject = sessionStorage.getItem("ActiveProject");
+                url = getUrlByDetailName(activeProject); //Method can be found in shared/page-mapper.js 
+            }
+            else { //User requested a normal page from the navigation menu
+                url = getUrlByBookmarkIndex(bookmarkIndex); //Method can be found in shared/page-mapper.js 
+            }
 
-         if(bookmarkIndex == 5){ //DetailsPage
-            var activeProject = sessionStorage.getItem("ActiveProject");
-            url = getUrlFromDetailName(activeProject); //Method can be found in shared/page-mapper.js 
-         }
-         else{
-            url = getUrlByBookmarkIndex(bookmarkIndex); //Method can be found in shared/page-mapper.js 
-         }
-
-         if(url != null){
-            $('#page-placeholder').load(url);
-         }
+            if (url) {
+                $('#page-placeholder').load(url);
+            }
+        }
     </script>
 
     <!-- Load bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" 
-        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
         crossorigin="anonymous"></script>
 </body>
+
 </html>
