@@ -97,59 +97,64 @@
   </ul>
 </div>
 
-<script>  
+<script>
   $(document).ready(function () {
-    HideBookmarks();    
+    HideBookmarks();
     $(".navButton-img-container-child").parent().hide();  // Hide all sub nav buttons
     UpdateCurrentProjectLabel();
     ShowNavSubMenu();
   });
 
-  function UpdateCurrentProjectLabel(){
+  function HideBookmarks() {
+    $('.bookmark-img').each(function (i, obj) {
+      $(this).css('visibility', 'hidden');
+    });
+  }
+
+  function UpdateCurrentProjectLabel() {
     var project = sessionStorage.getItem("ActiveProject");
-    if(project == null){
-      $('#navButton-projects-current').text('Current project: None');
-    }
-    else{
+    if (project) {
       $('#navButton-projects-current').text(project);
+    }
+    else {
+      $('#navButton-projects-current').text('Current project: None');
     }
   }
 
   function ShowNavSubMenu() {
 
     var bookmarkIndex = sessionStorage.getItem("BookmarkIndex");
-    if (bookmarkIndex != null) {
 
-      var bookmarkMapping = bookmarks_htmlPages[bookmarkIndex];
-      var navButtonElementId = bookmarkMapping[0];
-      var bookmarkDepth = bookmarkMapping[2]
+    if (bookmarkIndex == null) {
+      return;
+    }
 
-      var navButtonElement = $("#" + navButtonElementId);
+    var bookmarkMapping = bookmarks_htmlPages[bookmarkIndex];
+    var navButtonElementId = bookmarkMapping[0];
+    var bookmarkDepth = bookmarkMapping[2]
 
-      
-      var ul = null;
-      if (bookmarkDepth == 0) {
-        var ul = navButtonElement.parent().next(); // Get sub menu
+    var navButtonElement = $("#" + navButtonElementId);
 
-        //Show 2nd  bookmarker for the first child (in the bookmarker hierarchy).
-        //                                div      ul                li                  div              img
-        var imgElement = navButtonElement.parent().next().children().first().children().first().children().first();
-        $(imgElement).css('visibility', 'visible');
-      }
-      else if (bookmarkDepth == 1) {
-        $('#' + navButtonElementId).prev().css('visibility', 'visible'); //Show Bookmarker
-        var ul = navButtonElement.parent().parent().parent(); // Get sub menu
-        //Show 2nd bookmaker for the parent (in the bookmarker hierarchy).
-        //                                 div      li        ul      li                 div                img
-        //var imgElement = navButtonElement.parent().parent().parent().parent().children().first().children().first();
-        //$(imgElement).css('visibility', 'visible');
-      }
+    //First we have to determine which <ul> (sub nav) to show.
+    var ul = null;
+    if (bookmarkDepth == 0) {
+      var ul = navButtonElement.parent().next(); // Get <ul>
 
-      var subButtons = $(ul).children(); //Array of List Item
-      for (var i = 0; i < subButtons.length; i++) {
-        var li = subButtons[i];
-        $(li).show();
-      }
+      //Show bookmarker for the first child (in the bookmarker hierarchy).
+      //                                div      ul                li                  div              img
+      var imgElement = navButtonElement.parent().next().children().first().children().first().children().first();
+      $(imgElement).css('visibility', 'visible');
+    }
+    else { //if (bookmarkDepth > 0)
+      $('#' + navButtonElementId).prev().css('visibility', 'visible'); //Show Bookmarker
+      var ul = navButtonElement.parent().parent().parent(); // Get <ul>
+    }
+
+    //Show each button in the sub menu
+    var subButtons = $(ul).children(); //Array of List Item
+    for (var i = 0; i < subButtons.length; i++) {
+      var li = subButtons[i];
+      $(li).show();
     }
   }
 
@@ -162,23 +167,13 @@
   });
 
   $(".navButton").on('click', function () {
-    //Get clicked element
-    var elementId = $(this).attr('id');
+    var elementId = $(this).attr('id'); //Get clicked element    
+    var bookmarkIndex = getBookmarkIndexByElementId(elementId); //Method can be found in shared/page-mapper.js
 
-    //Loop through bookmark mapping and get the index of the clicked bookmark
-    var BookmarkIndex = getBookmarkIndexByElementId(elementId); //Method can be found in shared/page-mapper.js
-
-    if (BookmarkIndex > -1) {
-      sessionStorage.setItem("BookmarkIndex", BookmarkIndex);
+    if (bookmarkIndex != null) {
+      sessionStorage.setItem("BookmarkIndex", bookmarkIndex);
     }
 
-    //Refresh page
-    location.reload();
+    location.reload(); //Refresh the page with the new BookmarmkIndex value.
   });
-
-  function HideBookmarks() {
-    $('.bookmark-img').each(function (i, obj) {
-      $(this).css('visibility', 'hidden');
-    });
-  }
 </script>
