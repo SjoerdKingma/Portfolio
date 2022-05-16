@@ -22,7 +22,7 @@ a, a:hover {
     /* text-decoration: inherit; no underline for links */
   }
 
-ul{
+#nav-left ul{
     list-style-type: none;
     padding-inline-start: 0;
 }

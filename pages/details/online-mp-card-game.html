@@ -1,1 +1,46 @@
-online-mp-card-game
+<h2>Care-for-some-tea-saboteur</h2>
+
+<h3>Intro</h3>
+<p>
+    For our college graduation project, me and 2 other classmates wanted to make a card game inspired by one of our favorite games: Hearthstone.
+    We chose a steampunk theme for art style and named it "Care-for-some-tea-saboteur".
+</p>
+
+<p>Some criteria for this game were:</p>
+<ul>
+    <li>2 Players must be able to find a match through a matchmaking system and play against eachother over the internet.</li>
+    <li>Log-in system with user accounts to store information about each player.</li>
+</ul>
+
+<h3>Solution</h3>
+<p>
+    The solution consists of 3 seperate applications working together: The game client, the game server and the web application (including an API.)
+    Both the game server and the web server ran on my classmates' physical server at home.
+    The game client can be downloaded from the website, which has been taken offline after we graduated college.
+</p>
+<p>
+    One of my 2 classmates was studying game-development so his task was to make the game. 
+    We decided the game will be made with Unity game engine.
+</p>
+<P>
+    Me and my other classmate were studying application development. 
+    I volunteered to make the game-server because I knew I would learn a lot on networking and I didnt't know much about it yet.
+</P>
+<P>
+    My other classmate had never made an API yet, so he was happy to make the website with API.
+</P>
+
+<h3>Game-server</h3>
+<p>
+    On this page I will focus only on the game server, as I haven't contributed anything to the game client and web-app.
+    The game server is a console application written in C# which i've made entirely by myself.
+</p>
+    Its job is to:
+    <ul>
+        <li>Communicate between the game client and API.</li>
+        <li>Handle matchmaking for all players in the matchmaking queue.</li>
+        <li>Connect 2 players and have their game clients launch a game against eachother.</li>
+        <li>Update game changes between 2 players. Meaning: If one player makes a move, the other player can also see it.</li>
+        <li>Online text-chat between 2 game clients.</li>
+    </ul>
+
