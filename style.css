@@ -12,6 +12,11 @@ header{
     margin-bottom: 0.5em;
 }
 
+.header-logo{
+    float: right;
+    width: 60px;
+}
+
 a, a:hover {
     color: inherit; /* no blue colors for links*/
     /* text-decoration: inherit; no underline for links */
@@ -73,7 +78,7 @@ ul{
 }
 
 .listItem{
-    border: 2.5px solid grey;
+    border: 2.5px solid #bfbfbf;
     border-radius: 5px;
     margin-bottom: 2em;
     text-align: center;
