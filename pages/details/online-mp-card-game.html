@@ -1,4 +1,5 @@
 <h2>Care-for-some-tea-saboteur</h2>
+Github: <a href="https://github.com/Quikers/Care-for-some-tea-Saboteur">https://github.com/Quikers/Care-for-some-tea-Saboteur</a>
 
 <h3>Intro</h3>
 <p>
@@ -31,6 +32,7 @@
 </P>
 
 <h3>Game-server</h3>
+Game-server source code: <a href="https://github.com/Quikers/Care-for-some-tea-Saboteur/blob/Development/Server/Server/Program.cs">https://github.com/Quikers/Care-for-some-tea-Saboteur/blob/Development/Server/Server/Program.cs</a><br><br>
 <p>
     On this page I will focus only on the game server, as I haven't contributed anything to the game client and web-app.
     The game server is a console application written in C# which i've made entirely by myself.
@@ -43,4 +45,32 @@ Its job is to:
     <li>Update game changes between 2 players. Meaning: If one player makes a move, the other player can also see it.</li>
     <li>Communicate chat messages between 2 game clients.</li>
 </ul>
+
+<h3>Code examples</h3>
+<p>
+    To prevent thread blocking calls, the server executes methods asynchronously.
+    it does this by using the Task class, present in system.net.threading.
+</p>
+<img src="img/comet-server-start.png" alt="Server start">
+<p>
+    In the next chapters I will show the code of each of these 3 methods.
+</p>
+
+<h4>Handle matchmaking method</h4>
+<img src="img/comet-handle-matchmaking.png" alt="Handle Matchmaking">
+
+<h4>Start match method</h4>
+<img src="img/comet-startmatch.png" alt="Start Match">
+
+<h4>ListenTcp method</h4>
+<img src="img/comet-listenTcp.png" alt="Listen TCP">
+
+<h4>Check all players validation</h4>
+<img src="img/comet-check-all-players-validation.png" alt="Player validation">
+
+<h4>Is client valid</h4>
+<img src="img/comet-isclientvalid.png" alt="Is client valid">
+
+
+
 

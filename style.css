@@ -114,3 +114,8 @@ a, a:hover {
 #contact-table td{
     padding-bottom: 0.3em;
 }
+
+#page-placeholder img{
+    margin-bottom: 1em;
+    width: 100%;
+}
