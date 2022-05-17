@@ -4,11 +4,11 @@
 <script>
     $(document).ready(function(){
         $.get("shared/listItem-project.html", function (listItem) {
-            loadDataIntoProjectListItem(listItem);
+            loadDataIntoProjectListItems(listItem);
         });
     });
 
-    function loadDataIntoProjectListItem(listItem) {
+    function loadDataIntoProjectListItems(listItem) {
         $.getJSON("data/projects.json", function (json) {
 
             //for each project
@@ -75,14 +75,31 @@
     }
 
     function generateTitleDiv(title){
-        var stringbuilder = '<div onclick="onDetailsClick($(this))">';
+        var stringbuilder = '<div ';
+        stringbuilder += 'onclick="onDetailsClick($(this))" ';
+        stringbuilder += 'onMouseOver="onMouseOver($(this))"';
+        stringbuilder += 'onMouseLeave="onMouseLeave($(this))">';
+         
         stringbuilder += title;
         stringbuilder += '</div>';
         return stringbuilder;
     }
 
-    function onDetailsClick(obj) {
-        sessionStorage.setItem("ActiveProject", obj.text());
+    function onMouseOver(titleDiv){
+        var listItem = titleDiv.parent().parent();
+        listItem.css("border", "1px solid lime")
+
+        titleDiv.css("color", "lime");
+    }
+
+    function onMouseLeave(titleDiv){
+        var listItem = titleDiv.parent().parent();
+        listItem.css("border", "1px solid #bfbfbf")
+        titleDiv.css("color", "inherit");
+    }
+
+    function onDetailsClick(titleDiv) {
+        sessionStorage.setItem("ActiveProject", titleDiv.text());
         sessionStorage.setItem("BookmarkIndex", 5);
         location.reload();
     }
