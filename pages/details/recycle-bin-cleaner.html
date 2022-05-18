@@ -1,1 +1,32 @@
-Recycle bin cleaner page doesn't exist yet. Sorry!
+<h2>Recycle bin cleaner</h2>
+
+<p>
+    Source: <a href="https://github.com/SjoerdKingma/RecycleBinCleaner">https://github.com/SjoerdKingma/RecycleBinCleaner</a> <br>
+    Download: <a href="https://github.com/SjoerdKingma/Recycle-bin-cleaner">https://github.com/SjoerdKingma/Recycle-bin-cleaner</a>
+</p>
+
+<h3>Intro</h3>
+<p>
+    Recycle bin cleaner is a small tool which cleans Windows recycle bin based on user input. 
+</p>
+<p>
+    After entering a list of filenames in UserSettings.json, the user can run the executable to remove all files from Windows recycle bin whose names are equal to the names entered in the UserSettings.json.
+    After finishing, the application immediately closes. The user can then open Logs.json to view the results.
+</p>
+
+<h3>Technical details</h3>
+<p>
+    Recycle bin cleaner is a tool made with .NET, using the C# programming language.
+    It only runs on Windows machines.
+</p>
+<p>
+    I use the shell32 library which is present in Windows by default in: C:/Windows/System32.
+    This package contains functionality for the developer to interact with special windows folders such as the recycle bin.
+</p>
+
+Here I show how I use shell32.dll in my code:
+<img src="img/rbc-shell32.png" alt="Shell32 in .NET">
+    
+And this is how the file or folder gets deleted:
+<img src="img/rbc-delete.png" alt="Deleting a folder in recyble bin">
+
