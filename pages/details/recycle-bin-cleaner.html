@@ -19,14 +19,23 @@
     Recycle bin cleaner is a tool made with .NET, using the C# programming language.
     It only runs on Windows machines.
 </p>
+I chose to store any user settings in json format because:
+<ul>
+    <li>
+        The user can make changes to a json file. 
+    </li>
+    <li>
+        In the future I could easily build a good looking UI on top of this, without having to change the way the user settings are stored.
+    </li>
+</ul>
 <p>
     I use the shell32 library which is present in Windows by default in: C:/Windows/System32.
     This package contains functionality for the developer to interact with special windows folders such as the recycle bin.
 </p>
 
-Here I show how I use shell32.dll in my code:
+Here I show how I used shell32.dll in my C# code to obtain a list of all files in the recycle bin.
 <img src="img/rbc-shell32.png" alt="Shell32 in .NET">
     
-And this is how the file or folder gets deleted:
+And this is how the file or folder gets deleted from the recycle bin.
 <img src="img/rbc-delete.png" alt="Deleting a folder in recyble bin">
 
