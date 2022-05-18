@@ -27,7 +27,7 @@
     <div id="page-placeholder" class="col-sm-9"></div>
 
     <!-- Load Page Mapper -->
-    <script type="text/javascript" src="shared/page-mapper.js"></script>
+    <script type="text/javascript" src="helpers/page-mapper.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -49,10 +49,10 @@
             var url = "";
             if (bookmarkIndex == 5) { //User requested a project details page
                 var activeProject = sessionStorage.getItem("ActiveProject");
-                url = getProjectDetailsUrlByProjectName(activeProject); //Method can be found in shared/page-mapper.js 
+                url = getProjectDetailsUrlByProjectName(activeProject); //Method can be found in helpers/page-mapper.js 
             }
             else { //User requested a normal page from the navigation menu
-                url = getUrlByBookmarkIndex(bookmarkIndex); //Method can be found in shared/page-mapper.js 
+                url = getUrlByBookmarkIndex(bookmarkIndex); //Method can be found in helpers/page-mapper.js 
             }
 
             if (url) {

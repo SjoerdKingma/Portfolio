@@ -3,12 +3,12 @@
 
 <script>
     $(document).ready(function(){
-        $.get("shared/listItem-project.html", function (listItem) {
-            loadDataIntoProjectListItems(listItem);
+        $.get("shared/listItem-project.html", function (listItemTemplate) {
+            loadDataIntoProjectListItems(listItemTemplate);
         });
     });
 
-    function loadDataIntoProjectListItems(listItem) {
+    function loadDataIntoProjectListItems(listItemTemplate) {
         $.getJSON("data/projects.json", function (json) {
 
             //for each project
@@ -37,7 +37,7 @@
                 keywords_stringbuilder += ".";
 
                 //Add the fields to the HTML template
-                $(listItem)
+                $(listItemTemplate)
                     .find('.listItem-title')
                         .html(generateTitleDiv(title))
                         .end()
