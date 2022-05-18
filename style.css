@@ -79,7 +79,7 @@ a, a:hover {
 }
 
 .listItem{
-    border: 1.5px solid #bfbfbf;
+    border: 1px solid #bfbfbf;
     border-radius: 5px;
     margin-bottom: 2em;
     text-align: center;
