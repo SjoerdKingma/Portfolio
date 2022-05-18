@@ -35,11 +35,17 @@ const bookmarks_htmlPages = [
   }
 
   function getUrlByDetailName(detailName){
-    for(var i=0; i<projectDetails_htmlPages.length; i++){
-      var currentDetailsPage = projectDetails_htmlPages[i];
 
-      if(currentDetailsPage[0] == detailName){
-        return currentDetailsPage[1];
+    if(detailName){
+      for(var i=0; i<projectDetails_htmlPages.length; i++){
+        var currentDetailsPage = projectDetails_htmlPages[i];
+  
+        if(currentDetailsPage[0] == detailName){
+          return currentDetailsPage[1];
+        }
       }
+    }
+    else{
+      return "pages/details/default.html";
     }
   }
