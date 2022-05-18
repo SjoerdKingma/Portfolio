@@ -36,10 +36,10 @@
             // Load left nav
             $('#nav-left-placeholder').load('shared/nav-left.html');
             // Load page content
-            loadPage();
+            loadContent();
         });
 
-        function loadPage() {
+        function loadContent() {
             var bookmarkIndex = sessionStorage.getItem("BookmarkIndex");
             
             if (bookmarkIndex == null) { //BookmarkIndex is null if the user hasn't clicked any links yet.
@@ -49,7 +49,7 @@
             var url = "";
             if (bookmarkIndex == 5) { //User requested a project details page
                 var activeProject = sessionStorage.getItem("ActiveProject");
-                url = getUrlByDetailName(activeProject); //Method can be found in shared/page-mapper.js 
+                url = getProjectDetailsUrlByProjectName(activeProject); //Method can be found in shared/page-mapper.js 
             }
             else { //User requested a normal page from the navigation menu
                 url = getUrlByBookmarkIndex(bookmarkIndex); //Method can be found in shared/page-mapper.js 

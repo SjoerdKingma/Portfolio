@@ -129,7 +129,7 @@
       return;
     }
 
-    var bookmarkMapping = bookmarks_htmlPages[bookmarkIndex];
+    var bookmarkMapping = navButton_url[bookmarkIndex];
     var navButtonElementId = bookmarkMapping[0];
     var bookmarkDepth = bookmarkMapping[2]
 
@@ -170,10 +170,6 @@
     var elementId = $(this).attr('id'); //Get clicked element    
     var bookmarkIndex = getBookmarkIndexByElementId(elementId); //Method can be found in shared/page-mapper.js
 
-    if (bookmarkIndex != null) {
-      sessionStorage.setItem("BookmarkIndex", bookmarkIndex);
-    }
-
-    location.reload(); //Refresh the page with the new BookmarmkIndex value.
+    loadPage(bookmarkIndex); //Method can be found in shared/page-mapper.js
   });
 </script>

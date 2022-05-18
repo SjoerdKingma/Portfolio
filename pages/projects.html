@@ -61,19 +61,6 @@
         });
     }
 
-    function generateAHREFtag(url){
-        return generateAHREFtagWithText(url, url);
-    }
-
-    function generateAHREFtagWithText(url, text){
-        var stringbuilder = '<a href="';
-        stringbuilder += url;
-        stringbuilder += '">';
-        stringbuilder += text;
-        stringbuilder += '</a>';
-        return stringbuilder;
-    }
-
     function generateTitleDiv(title){
         var stringbuilder = '<div ';
         stringbuilder += 'onclick="onDetailsClick($(this))" ';
@@ -88,7 +75,6 @@
     function onMouseOver(titleDiv){
         var listItem = titleDiv.parent().parent();
         listItem.css("border", "1px solid lime")
-
         titleDiv.css("color", "lime");
     }
 
