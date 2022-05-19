@@ -13,39 +13,28 @@
 
             //for each project
             for(var i =0; i<json.projects.length; i++){
-                var title = json.projects[i].title;
-                //var titleAHREF = generateAHREFtag(getUrlFromDetailName(title), title)
-                var type = json.projects[i].type;
-                var description = json.projects[i].description;
-                var github = json.projects[i].github;
+
+                var project = json.projects[i];
+
+                var title = project.title;
+                var type = project.type;
+                var description = project.description;
+                var github = project.github;
                 var githubAHREF = generateAHREFtag(github);
-                var website = json.projects[i].website;
+                var website = project.website;
                 var websiteAHREF = generateAHREFtag(website);
-
-                var keywords = json.projects[i].keywords;
-                var keywords_stringbuilder = "";
-
-                //for each keyword
-                for(var j =0; j<keywords.length; j++){
-                    keywords_stringbuilder += keywords[j] + ", ";
-                }
-
-                //Remove final seperator
-                keywords_stringbuilder = keywords_stringbuilder.slice(0, keywords_stringbuilder.length - 2)
-
-                //Add a period
-                keywords_stringbuilder += ".";
+                var keywords = generateKeywordsMarkup(project.keywords);
 
                 //Add the fields to the HTML template
                 $(listItemTemplate)
                     .find('.listItem-title')
-                        .html(generateTitleDiv(title))
+                        .html(title)
                         .end()
                     .find('.field-type')
                         .html(type)
                         .end()
                     .find('.field-keywords')
-                        .html(keywords_stringbuilder)
+                        .html(keywords)
                         .end()
                     .find('.field-description')
                         .html(description)
@@ -61,27 +50,49 @@
         });
     }
 
-    function generateTitleDiv(title){
-        var stringbuilder = '<div ';
-        stringbuilder += 'onclick="onDetailsClick($(this))" ';
-        stringbuilder += 'onMouseOver="onMouseOver($(this))"';
-        stringbuilder += 'onMouseLeave="onMouseLeave($(this))">';
-         
-        stringbuilder += title;
-        stringbuilder += '</div>';
-        return stringbuilder;
+    function generateKeywordsMarkup(keywords){
+        var stringBuilder = "";
+
+        //for each keyword
+        for(var j =0; j<keywords.length; j++){
+            stringBuilder += keywords[j] + ", ";
+        }
+
+        //Remove final comma and space
+        stringBuilder = stringBuilder.slice(0, stringBuilder.length - 2)
+
+        //Add a period
+        stringBuilder += ".";
     }
 
-    function onMouseOver(titleDiv){
-        var listItem = titleDiv.parent().parent();
-        listItem.css("border", "1px solid lime")
+    // function generateTitleDiv(title){
+    //     var stringbuilder = '<div ';
+    //     stringbuilder += 'onclick="onDetailsClick($(this))" ';
+    //     stringbuilder += 'onMouseOver="onMouseOver($(this))"';
+    //     stringbuilder += 'onMouseLeave="onMouseLeave($(this))">';
+         
+    //     stringbuilder += title;
+    //     stringbuilder += '</div>';
+    //     return stringbuilder;
+    // }
+
+    function onMouseOver(obj){
+        obj.css("border", "1px solid lime")
+        obj.css("cursor", "pointer");
+
+        var titleDiv = obj.children[0];
+        console.log("Title div: ");
+        console.log(titleDiv);
         titleDiv.css("color", "lime");
     }
 
-    function onMouseLeave(titleDiv){
-        var listItem = titleDiv.parent().parent();
-        listItem.css("border", "1px solid #bfbfbf")
+    function onMouseLeave(obj){
+        obj.css("border", "1px solid #bfbfbf")
+        obj.css("color", "inherit");
+        //console.log(obj);
+        //var titleDiv = obj.children.first();
         titleDiv.css("color", "inherit");
+        
     }
 
     function onDetailsClick(titleDiv) {
