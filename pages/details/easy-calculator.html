@@ -1,1 +1,44 @@
-Easy calculator page doesn't exist yet. Sorry!
+<h2>Easy Calculator</h2>
+
+<h3>Intro</h3>
+<p>
+    Easy calculator is a tool written in C# which aims for a more efficient way to perform calculations, compared to a traditional calculator.
+    Its goal is to provide a way for the user to make calculations with as little actions as possible.
+    This is useful for people who have to make a lot of calculations manually.
+</p>
+
+The main features which sets this tool apart from a traditional calculator are:
+<ul>
+    <li>
+        You can perform a lot of manual operations by simply entering a number and pressing the Enter on your keyboard.
+    </li>
+    <li>
+        Ability for the user to remember the number input, simplifying the task even further; Now you can repeatedly press the Enter key to perform the same calculation multiple times.
+    </li>
+</ul>
+
+<h3>User Interface</h3>
+<p>This is what the user interface looks like:</p>
+<img src="img/easy-calculator-UI.png" style="width:50%">
+
+<p>
+    As you can see, the operator choice (plus, minus, multiply, divide by) is always remembered. Its advantage being the user not having to enter the operator symbol themselves.
+    And the user has the ability to remember his input so that he only requires to press the Enter button to repeat the previous calculation.
+</p>
+
+<p>The <b>clear</b> button clears the user input and the output of the tool, so that the user may start from scratch again.</p>
+<p>The <b>undo button</b> removes the last operation performed on the formula.</p>
+<p>The <b>formula window</b> displays the complete formula of the calculation made by the user.</p>
+<p>On the very buttom is the <b>output window</b> for the answer. In case the application runs into a problem, it will display an error here instead of an answer.</p>
+
+<h3>Technical details</h3>
+<p>
+    Easy calculator is a .NET Winforms project. Winforms is a framework designed to provide an easy way for developers to build user interfaces for Windows applications.
+    In a similar way to Javascript, Winforms likes to add event handlers to components such as Buttons and Text fields.
+</p>
+
+<p>The event handler for the button "Calculate" looks like this:</p>
+<img src="img/easy-calculator-buttonCalc.png">
+
+<p>The method Calculate looks like this:</p>
+<img src="img/easy-calcaultor-calculate-method.png">
