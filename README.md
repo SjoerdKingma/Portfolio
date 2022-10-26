@@ -1,2 +1,2 @@
 # My Portfolio Website
-[https://sjoerdkingma.github.io/Portfolio/](https://sjoerdkingma.github.io/Portfolio/)
+Visit the website here: [https://sjoerdkingma.github.io/Portfolio/](https://sjoerdkingma.github.io/Portfolio/)
